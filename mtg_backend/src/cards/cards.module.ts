@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { CardsService } from './cards.service';
 import { CardsController } from './cards.controller';
 import { HttpModule } from '@nestjs/axios';
+import { MtgDevelopersAdapterClass } from 'src/adapters/mtgDevelopers.adapter';
 
 @Module({
   imports: [
@@ -11,6 +12,6 @@ import { HttpModule } from '@nestjs/axios';
     }),
   ],
   controllers: [CardsController],
-  providers: [CardsService],
+  providers: [CardsService, MtgDevelopersAdapterClass],
 })
 export class CardsModule {}
