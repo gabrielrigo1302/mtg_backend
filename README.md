@@ -6,3 +6,5 @@ Project to study new technologies for backend
 - DB: SQL Server or DynamoDB
 - Test: Jest
 - API: https://scryfall.com/docs/api or https://docs.magicthegathering.io/
+
+db PASSWORD --- j6bKGjPaJPshpqsF
