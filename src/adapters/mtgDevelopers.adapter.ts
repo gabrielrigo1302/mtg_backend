@@ -2,7 +2,7 @@ import { Card, Cards, CardFilter } from 'mtgsdk-ts';
 import { MtgDevelopersAdapterInterface } from './interfaces/mtgDevelopers.interfaces';
 
 export class MtgDevelopersAdapterClass implements MtgDevelopersAdapterInterface {
-  async getCards(query: CardFilter): Promise<void | Card[]> {
+  async searchCards(query: CardFilter): Promise<void | Card[]> {
     return await Cards.where({
       name: query.name
     })

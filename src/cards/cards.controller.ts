@@ -2,11 +2,6 @@ import {
   Controller,
   Query,
   Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
 } from '@nestjs/common';
 import { CardsService } from './cards.service';
 import { CardFilterDto, CardDto } from './dto/card.dto';
@@ -15,17 +10,15 @@ import { CardFilterDto, CardDto } from './dto/card.dto';
 export class CardsController {
   constructor(private readonly cardsService: CardsService) {}
 
-  @Get()
-  async find(@Query() queryParameters: CardFilterDto): Promise<void | CardDto[]> {
-    return await this.cardsService.find(queryParameters);
+  @Get('/search')
+  // return cards from an query
+  async find(@Query() queryParameters: string): Promise<void | CardDto[]> {
+    return await this.cardsService.search(queryParameters);
   }
 
-  // @Get('/test')
-  // async findAll(@Query() queryParameters: CardFilterDto): Promise<any> {
-  //   const a = await this.cardsService.findAll();
-
-  //   // console.log('a --- ', a);
-
-  //   return a;
-  // }
+  @Get('/list')
+  // return a list of card filtered by set and order (name, coust, etc...)
+  async findAll(@Query() queryParameters: CardFilterDto): Promise<any> {
+    return await this.cardsService.list();
+  }
 }
